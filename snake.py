@@ -3,12 +3,12 @@ import random
 
 game_width=500
 game_height=500
-background_color="#FFD700"
+background_color="black"
 snake_color="#FF1493"
 food_color="#FF0000"
 space_size=50
 body_parts=3
-speed=500
+speed=100
 
 class Snake:
     
@@ -113,11 +113,14 @@ def check_collision(snake):
             return True
     return False
 
+# def reset_game(snake,food):
+#    canvas.create_text(canvas.winfo_height()/2, canvas.winfo_height()/3,font=("consolas", 70), text="restart",fill="pink",tags="restarting game",box="rectangle")
+
 
 def game_over():
    canvas.delete(all)
    canvas.create_text(canvas.winfo_width()/2, canvas.winfo_height()/2, font=("consolas", 70), text="GAME OVER", fill="red", tags="game over")
-
+#    reset_game(snake,food)
 
 
 window=Tk()

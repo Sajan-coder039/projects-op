@@ -11,7 +11,7 @@ from tkinter import *
 window=Tk()
 window.title("sajan sah")
 
-label=Label(window, width=30, height=10, text="Hello, World!" )
+label=Label(window, width=30, height=10,text="Hello, World!" )
 label.pack()
 
 window.mainloop()
