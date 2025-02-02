@@ -3,12 +3,12 @@ import random
 
 game_width=500
 game_height=500
-background_color="black"
-snake_color="#FF1493"
-food_color="#FF0000"
+background_color="#000000"
+snake_color="white"
+food_color="pink"
 space_size=50
 body_parts=3
-speed=100
+speed=200
 
 class Snake:
     
