@@ -16,19 +16,24 @@ int main(){
     scanf("%d",&choice);
 
     switch (choice){
+        
         case 1 :
             check_book();
             break;
+        
         case 2 :
             take_book();
             break;
+        
         case 3 :
             return_book();
             break;
+        
         case 4 :
             printf("\nSuccessfully exit the portal!!\n");
             isrunning=0;
             break;
+        
         default:
             printf("\nenter the valid choice??: \n");
 
@@ -44,8 +49,10 @@ int main(){
 void check_book(){
 
     int ch;
+    
     FILE *file;
     file=fopen("sajan.txt","r");
+    
     if (file==NULL){
         printf("NO BOOK !!! \n In your wallet right now");
     }
@@ -55,6 +62,7 @@ void check_book(){
     while ((ch = fgetc(file)) != EOF) {
         putchar(ch);
     }
+    
     fclose(file);   
     
 }
@@ -67,10 +75,13 @@ void take_book(){
     file = fopen("sajan.txt", "a");
 
     if (!file) {
+        
         printf("\n (404) status code \n");
         fclose(file);
+        
         return;
     }
+    
     while (choice){
         
         printf("\nenter the book name-> ");
@@ -81,6 +92,7 @@ void take_book(){
 
         printf("\nenter (1) for more book or (0) for not:  ->");
         scanf("%d",&choice);
+    
     }  
     
     fclose(file);
@@ -100,13 +112,16 @@ void return_book(){
     temp=fopen("temp.txt","w");
     
     if (!file || !temp) {
+        
         printf("\n 404 status code !!\n");
         fclose(file);
+        
         return ;
     }
 
     while (isrunning){
         char *target=malloc(100);
+        
         printf("\nenter the book'name for returning: ->\n");
         scanf("%s",target);
 
@@ -117,21 +132,28 @@ void return_book(){
                 fprintf(temp, "%s\n", content);
                
             } 
+            
             else {
                 found = 1;
             }
+    
     }   
 
     fclose(file);
     fclose(temp);
 
     if (found) {
+
         remove("sajan.txt");
+        
         rename("temp.txt", "sajan.txt");
         printf("Book \"%s\" removed successfully.\n", target);
+
     } else {
+        
         remove("temp.txt");
         printf("Book \"%s\" not found in file.\n", target);
+        
     }
 
     printf("\nMore book need to return (1(yes) or 0(no)) -> \n");
@@ -139,4 +161,5 @@ void return_book(){
     
     free(target);
 }
+
 }
